@@ -13,6 +13,9 @@ namespace Contracts
         ICityRepository City { get; }
         IGarageRepository Garage { get; }
         IRentRepository Rent { get; }
+        IMotorcycleRepository Motorcycle { get; }
+        IPhoneRepository Phone { get; }
+
         void Save();
     }
 }
