@@ -11,6 +11,8 @@ namespace Service.Contracts
         IAgencyService AgencyService {get;}
         ICityService CityService { get; }
         IClientService ClientService { get; }
+        IGarageService GarageService { get; }
+        IRentService rentService { get; }
 
     }
 }

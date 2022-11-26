@@ -116,6 +116,7 @@ namespace Repository
             // Invocar las clases que contienen las semillas
             modelBuilder.ApplyConfiguration(new AgencyConfiguration());
             modelBuilder.ApplyConfiguration(new ClientConfiguration());
+            modelBuilder.ApplyConfiguration(new CityConfiguration());
 
 
             OnModelCreatingPartial(modelBuilder);

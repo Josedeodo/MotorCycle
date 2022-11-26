@@ -14,8 +14,7 @@ namespace Service
         private readonly IRepositoryWrapper repository;
         private readonly ILoggerManager loggerManager;
 
-        public AgencyService(IRepositoryWrapper repository, 
-            ILoggerManager loggerManager)
+        public AgencyService(IRepositoryWrapper repository, ILoggerManager loggerManager)
         {
             this.repository = repository;
             this.loggerManager = loggerManager;
