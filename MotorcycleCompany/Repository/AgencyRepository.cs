@@ -14,5 +14,22 @@ namespace Repository
             : base(context)
         {
         }
+        public IEnumerable<Agency> GetAll(bool trackChanges)
+        {
+            return FindAll(trackChanges).ToList();
+        }
+
+        public IEnumerable<Agency> GetById(Guid id, bool trackChanges)
+        {
+
+            return FindByCondition(x => x.AgencyId.Equals(id), trackChanges).ToList();
+        }
+
+        public void CreateClient(Agency agency) => Create(agency);
+
+        public void UpdateClient(Agency agency) => Update(agency);
+
+        public void DeleteClient(Agency agency) => Delete(agency);
+
     }
 }
