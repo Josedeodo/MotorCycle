@@ -16,12 +16,25 @@ namespace Service
 
         private readonly Lazy<IClientService> _clientService;
 
+        private readonly Lazy <IGarageService> _garageService;
+
+        private readonly Lazy <IRentService> _rentService;
+
+        private readonly Lazy<IMotorcycleService> _motorcycleService;
+
+        private readonly Lazy<IPhoneService> _phoneService;
+
 
         public ServiceManager(IRepositoryWrapper repositoryManager, ILoggerManager loggerManager)
         {
             _agencyService = new Lazy<IAgencyService>(()=> new AgencyService(repositoryManager, loggerManager));
             _clientService = new Lazy<IClientService>(() => new ClientService(repositoryManager, loggerManager));
              _cityService = new Lazy<ICityService>(() => new CityService(repositoryManager, loggerManager));
+            _garageService = new Lazy<IGarageService>(() => new GarageService(repositoryManager, loggerManager));
+            _rentService = new Lazy<IRentService>(() => new RentService(repositoryManager,loggerManager));
+            _motorcycleService = new Lazy<IMotorcycleService>(()=> new MotorcycleService(repositoryManager, loggerManager));
+            _phoneService = new Lazy <IPhoneService>(() => new PhoneService(repositoryManager, loggerManager));
+            
         }
 
         public IAgencyService AgencyService => _agencyService.Value;
@@ -29,5 +42,13 @@ namespace Service
         public ICityService CityService => _cityService.Value;
 
         public IClientService ClientService => _clientService.Value;
+
+        public IGarageService GarageService => _garageService.Value;
+
+        public IRentService rentService => _rentService.Value;
+     
+        public IMotorcycleService motorcycleService => _motorcycleService.Value;
+
+        public IPhoneService phoneService => _phoneService.Value;
     }
 }
