@@ -24,7 +24,7 @@ namespace Service
 
         private readonly Lazy<IPhoneService> _phoneService;
 
-
+        private readonly IRepositoryWrapper _repositoryWrapper;
         public ServiceManager(IRepositoryWrapper repositoryManager, ILoggerManager loggerManager)
         {
             _agencyService = new Lazy<IAgencyService>(()=> new AgencyService(repositoryManager, loggerManager));
@@ -34,6 +34,8 @@ namespace Service
             _rentService = new Lazy<IRentService>(() => new RentService(repositoryManager,loggerManager));
             _motorcycleService = new Lazy<IMotorcycleService>(()=> new MotorcycleService(repositoryManager, loggerManager));
             _phoneService = new Lazy <IPhoneService>(() => new PhoneService(repositoryManager, loggerManager));
+
+            this._repositoryWrapper = repositoryManager;
             
         }
 
@@ -51,5 +53,6 @@ namespace Service
 
         public IPhoneService PhoneService => _phoneService.Value;
 
+        public void Save() => _repositoryWrapper.Save();
     }
 }

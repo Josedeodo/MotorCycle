@@ -16,5 +16,7 @@ namespace Service.Contracts
         IMotorcycleService MotorcycleService { get; }
         IPhoneService PhoneService { get; }
 
+        void Save();
+
     }
 }
