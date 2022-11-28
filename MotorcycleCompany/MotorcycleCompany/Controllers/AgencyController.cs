@@ -1,6 +1,7 @@
 ﻿using Contracts;
 using Entities.Models;
 using Microsoft.AspNetCore.Mvc;
+using Service.Contracts;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -11,16 +12,24 @@ namespace MotorcycleCompany.Controllers
     public class AgencyController : ControllerBase
     {
 
-        private readonly IRepositoryWrapper _repository;
-        public AgencyController(IRepositoryWrapper repository)
+        private readonly IServiceManager _serviceManager;
+        public AgencyController(IServiceManager service)
         {
-            this._repository = repository;
+            this._serviceManager = service;
         }
         // GET: api/<AgencyController>
         [HttpGet]
-        public IEnumerable<Agency> Get()
+        public IActionResult Get()
         {
-            return _repository.Agency.GetAll(false);
+            try
+            {
+                return Ok(_serviceManager.AgencyService.GetAllAgencies(false));
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"dfhkfjdfh {ex.Message}");
+            }
+           
         }
 
         // GET api/<AgencyController>/5

@@ -15,7 +15,7 @@ namespace MotorcycleCompany.ContextFactory
                 .AddJsonFile("appsettings.Development.json")
                 .Build();
 
-            var connection = configuration.GetConnectionString("sqlConnection");
+            var connection = configuration.GetConnectionString("sqlConnectionMySql");
             var serverVersion = new MySqlServerVersion(new Version(8, 0, 28));
 
             var builder = new DbContextOptionsBuilder<RepositoryContext>()
