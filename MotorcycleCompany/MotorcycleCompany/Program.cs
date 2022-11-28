@@ -5,17 +5,13 @@ using System;
 
 var builder = WebApplication.CreateBuilder(args);
 
-var configuration = new ConfigurationBuilder().SetBasePath(Directory.GetCurrentDirectory()).AddJsonFile("appsettings.Development.json").Build();
-var connection = configuration.GetConnectionString("sqlConnectionMySql");
-var serverVersion = new MySqlServerVersion(new Version(8, 0, 28));
-
-builder.Services.AddDbContext<RepositoryContext>(options => options.UseMySql(connection, serverVersion, b => b.MigrationsAssembly("ApisoftBackend")));
 
 // Add services to the container.
-
+builder.Services.ConfigureLoggerService();
 builder.Services.ConfigureRepositoryManager();
 builder.Services.ConfigureServiceManager();
 builder.Services.ConfigureSqlContext(builder.Configuration);
+builder.Services.ConfigureCors();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -34,6 +30,8 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
+
+app.UseCors("CorsPolicy");
 
 app.MapControllers();
 

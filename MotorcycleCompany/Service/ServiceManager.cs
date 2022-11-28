@@ -45,10 +45,11 @@ namespace Service
 
         public IGarageService GarageService => _garageService.Value;
 
-        public IRentService rentService => _rentService.Value;
-     
-        public IMotorcycleService motorcycleService => _motorcycleService.Value;
+        public IRentService RentService => _rentService.Value;
 
-        public IPhoneService phoneService => _phoneService.Value;
+        public IMotorcycleService MotorcycleService => _motorcycleService.Value;
+
+        public IPhoneService PhoneService => _phoneService.Value;
+
     }
 }
