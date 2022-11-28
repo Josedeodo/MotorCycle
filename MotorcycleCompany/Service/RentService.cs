@@ -1,4 +1,5 @@
 ﻿using Contracts;
+using Entities.Models;
 using Service.Contracts;
 using System;
 using System.Collections.Generic;
@@ -18,5 +19,7 @@ namespace Service
             _repository = repository;
             _loggerManager = loggerManager;
         }
+
+        public void createRent(Rent rent) => _repository.Rent.CreateRent(rent);
     }
 }
