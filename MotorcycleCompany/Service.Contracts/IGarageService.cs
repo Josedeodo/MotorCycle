@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Entities.Models;
 
 namespace Service.Contracts
 {
     public interface IGarageService
     {
-
+        IEnumerable<Garage> GetAllGarages(bool trackChanges);
+        void createGarage(Garage garage);
     }
 }
