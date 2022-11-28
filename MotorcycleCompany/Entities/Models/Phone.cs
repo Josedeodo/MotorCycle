@@ -12,11 +12,12 @@ namespace Entities.Models
         [Key]
         public Guid AgencyId { get; set; }
         [Key]
-        [StringLength(20)]
-        public string PhoneId { get; set; } = null!;
+        public Guid PhoneId { get; set; }
+
+        public string NumberPhone { get; set; }
 
         [ForeignKey("AgencyId")]
         [InverseProperty("Phones")]
-        public virtual Agency Agency { get; set; } = null!;
+        public virtual Agency? Agency { get; set; } = null!;
     }
 }

@@ -34,5 +34,19 @@ namespace Service
                 throw;
             }
         }
+
+        public IEnumerable<Agency> GetAllIncludeRentAndClient(bool trackChanges)
+        {
+            try
+            {
+
+                return _repository.Agency.GetIncludeRentAndClient(trackChanges);
+            }
+            catch (Exception ex)
+            {
+                _loggerManager.LogError($"Mas dañino que el azucar: {ex.Message}");
+                throw;
+            }
+        }
     }
 }

@@ -10,5 +10,6 @@ namespace Service.Contracts
     public interface IAgencyService
     {
         IEnumerable<Agency> GetAllAgencies(bool trackChanges);
+        IEnumerable<Agency> GetAllIncludeRentAndClient(bool trackChanges);
     }
 }

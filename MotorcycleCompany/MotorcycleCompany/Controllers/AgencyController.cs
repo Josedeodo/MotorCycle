@@ -23,7 +23,7 @@ namespace MotorcycleCompany.Controllers
         {
             try
             {
-                return Ok(_serviceManager.AgencyService.GetAllAgencies(false));
+                return Ok(_serviceManager.AgencyService.GetAllIncludeRentAndClient(false));
             }
             catch (Exception ex)
             {

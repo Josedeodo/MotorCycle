@@ -23,6 +23,9 @@ namespace Repository
         }
 
         public  DbSet<Agency> Agencies { get; set; } = null!;
+
+
+
         public  DbSet<City> Cities { get; set; } = null!;
         public  DbSet<Client> Clients { get; set; } = null!;
         public  DbSet<Garage> Garages { get; set; } = null!;
@@ -39,6 +42,14 @@ namespace Repository
             {
                 entity.Property(e => e.AgencyId).ValueGeneratedNever();
             });
+
+
+
+
+
+
+
+
 
             modelBuilder.Entity<City>(entity =>
             {

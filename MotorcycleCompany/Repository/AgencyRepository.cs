@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Contracts;
 using Entities.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace Repository
 {
@@ -15,9 +16,11 @@ namespace Repository
         {
         }
         public IEnumerable<Agency> GetAll(bool trackChanges)
-        {
-            return FindAll(trackChanges).ToList();
+        {    
+              return FindAll(trackChanges).Include("Phones").Include("Rents").ToList();
+          
         }
+
 
         public IEnumerable<Agency> GetById(Guid id, bool trackChanges)
         {
@@ -31,5 +34,21 @@ namespace Repository
 
         public void DeleteClient(Agency agency) => Delete(agency);
 
+
+        public IEnumerable<Agency> GetIncludePhone(bool trackChanges)
+        {
+            return FindAll(trackChanges).Include("Phones").ToList();
+        }
+
+        public IEnumerable<Agency> GetIncludeRentAndClient(bool trackChanges)
+        {
+            return FindAll(trackChanges).Include(x => x.Rents)
+     .ThenInclude(x => x.Client).Include(x => x.Phones);
+        }
+
+        public IEnumerable<Agency> GetAgencies(bool trackChanges)
+        {
+            return FindAll(trackChanges).ToList();
+        }
     }
 }
