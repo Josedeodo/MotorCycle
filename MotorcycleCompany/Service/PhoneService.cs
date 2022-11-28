@@ -1,4 +1,5 @@
 ﻿using Contracts;
+using Entities.Models;
 using Service.Contracts;
 using System;
 using System.Collections.Generic;
@@ -20,6 +21,18 @@ namespace Service
 
         }
 
+        public IEnumerable<Phone> GetAllPhones(bool trackChanges)
+        {
+            try
+            {
 
+                return _repository.Phone.GetAll(trackChanges);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"Mas dañino que el azucar: {ex.Message}");
+                throw;
+            }
+        }
     }
 }

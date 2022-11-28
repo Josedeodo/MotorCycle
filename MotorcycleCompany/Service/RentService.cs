@@ -22,7 +22,7 @@ namespace Service
 
         public void createRent(Rent rent) => _repository.Rent.CreateRent(rent);
 
-        public IEnumerable<Rent> GetAll(bool trackChanges)
+        public IEnumerable<Rent> GetAllRents(bool trackChanges)
         {
             try
             {
