@@ -11,8 +11,8 @@ using Repository;
 namespace MotorcycleCompany.Migrations
 {
     [DbContext(typeof(RepositoryContext))]
-    [Migration("20221128195929_initial")]
-    partial class initial
+    [Migration("20221128214926_test")]
+    partial class test
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -53,7 +53,7 @@ namespace MotorcycleCompany.Migrations
                     b.HasData(
                         new
                         {
-                            AgencyId = new Guid("55ca7eab-1a7d-4d2d-a4fc-186fa5413540"),
+                            AgencyId = new Guid("8611b427-ec6b-473c-bb03-eec171d425fd"),
                             Address = "Calle del recuerdo",
                             Location = "Usaquen",
                             Name = "Agencia01",
@@ -61,7 +61,7 @@ namespace MotorcycleCompany.Migrations
                         },
                         new
                         {
-                            AgencyId = new Guid("df3c783e-184a-4dcc-8d05-03d6b699df8f"),
+                            AgencyId = new Guid("1eab23c6-1a89-48d7-bead-fa2376d70114"),
                             Address = "Calle de la soledad",
                             Location = "Usaquen",
                             Name = "Agencia02",
@@ -92,14 +92,14 @@ namespace MotorcycleCompany.Migrations
                     b.HasData(
                         new
                         {
-                            CityId = new Guid("018ffa36-72c7-407f-82ca-bf420dd0b48e"),
+                            CityId = new Guid("10fc111b-a532-4f0f-afb1-fa34bdfc2eb8"),
                             Department = "Bogota",
                             Inhabitants = 23,
                             Name = "Bogota"
                         },
                         new
                         {
-                            CityId = new Guid("75b4e108-b222-489e-8e6d-f8e262edcd55"),
+                            CityId = new Guid("adc09a07-5b8f-443d-9422-d44808ed7323"),
                             Department = "Tusi",
                             Inhabitants = 21,
                             Name = "Medellin"
@@ -154,7 +154,7 @@ namespace MotorcycleCompany.Migrations
                     b.HasData(
                         new
                         {
-                            ClientId = new Guid("7c2838dd-c214-4599-9650-679051a4b98e"),
+                            ClientId = new Guid("50446cb0-8503-4f86-94bb-2ec5ded57c6f"),
                             Address = "La calle del ocio",
                             E_Mail = "german.alarcon@misena.edu.co",
                             FistName = "German Gilberto",
@@ -165,7 +165,7 @@ namespace MotorcycleCompany.Migrations
                         },
                         new
                         {
-                            ClientId = new Guid("0c9004c0-a58b-4962-ae51-5cb14c078057"),
+                            ClientId = new Guid("87556aa4-7eb6-481b-881c-bdb57c6930f4"),
                             Address = "La calle de la Melancolia",
                             E_Mail = "ana.yaqueline@misena.edu.co",
                             FistName = "Ana Yaqueline",
