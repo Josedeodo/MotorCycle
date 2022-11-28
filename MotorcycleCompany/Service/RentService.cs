@@ -1,4 +1,5 @@
 ﻿using Contracts;
+using Entities.Models;
 using Service.Contracts;
 using System;
 using System.Collections.Generic;
@@ -17,6 +18,20 @@ namespace Service
         {
             _repository = repository;
             _loggerManager = loggerManager;
+        }
+
+        public IEnumerable<Rent> GetAll(bool trackChanges)
+        {
+            try
+            {
+
+                return _repository.Rent.GetAll(trackChanges);
+            }
+            catch (Exception ex)
+            {
+                _loggerManager.LogError($"Mas dañino que el azucar: {ex.Message}");
+                throw;
+            }
         }
     }
 }
