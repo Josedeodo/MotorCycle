@@ -192,8 +192,17 @@ namespace MotorcycleCompany.Migrations
                 columns: new[] { "AgencyId", "Address", "Location", "Name", "Neighborhood" },
                 values: new object[,]
                 {
-                    { new Guid("53096188-487a-4782-83dd-82b740bac892"), "Calle de la soledad", "Usaquen", "Agencia02", "Santa Ana" },
-                    { new Guid("b1fe1869-335b-4e83-a45c-d6f88da0c620"), "Calle del recuerdo", "Usaquen", "Agencia01", "Santa Barbara" }
+                    { new Guid("55ca7eab-1a7d-4d2d-a4fc-186fa5413540"), "Calle del recuerdo", "Usaquen", "Agencia01", "Santa Barbara" },
+                    { new Guid("df3c783e-184a-4dcc-8d05-03d6b699df8f"), "Calle de la soledad", "Usaquen", "Agencia02", "Santa Ana" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "City",
+                columns: new[] { "CityId", "Department", "Inhabitants", "Name" },
+                values: new object[,]
+                {
+                    { new Guid("018ffa36-72c7-407f-82ca-bf420dd0b48e"), "Bogota", 23, "Bogota" },
+                    { new Guid("75b4e108-b222-489e-8e6d-f8e262edcd55"), "Tusi", 21, "Medellin" }
                 });
 
             migrationBuilder.InsertData(
@@ -201,8 +210,8 @@ namespace MotorcycleCompany.Migrations
                 columns: new[] { "ClientId", "Address", "E-Mail", "FistName", "LastName", "Number", "Phone", "TypeId" },
                 values: new object[,]
                 {
-                    { new Guid("52baaae1-1817-4057-8a29-2aa0af75c6d2"), "La calle del ocio", "german.alarcon@misena.edu.co", "German Gilberto", "Alarcon R", "79802910", "3153666036", "CC" },
-                    { new Guid("59972c0c-6a31-4419-8b27-cfedc48d4a49"), "La calle de la Melancolia", "ana.yaqueline@misena.edu.co", "Ana Yaqueline", "Chavarro", "79802911", "3153666037", "CC" }
+                    { new Guid("0c9004c0-a58b-4962-ae51-5cb14c078057"), "La calle de la Melancolia", "ana.yaqueline@misena.edu.co", "Ana Yaqueline", "Chavarro", "79802911", "3153666037", "CC" },
+                    { new Guid("7c2838dd-c214-4599-9650-679051a4b98e"), "La calle del ocio", "german.alarcon@misena.edu.co", "German Gilberto", "Alarcon R", "79802910", "3153666036", "CC" }
                 });
 
             migrationBuilder.CreateIndex(

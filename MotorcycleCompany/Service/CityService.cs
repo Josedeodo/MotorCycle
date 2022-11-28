@@ -17,7 +17,6 @@ namespace Service
         public CityService(IRepositoryWrapper repository, ILoggerManager loggerManager)
         {
             this.repository = repository;
-            this.loggerManager = loggerManager;
         }
     }
 }

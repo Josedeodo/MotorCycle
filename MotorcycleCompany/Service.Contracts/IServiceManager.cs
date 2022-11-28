@@ -12,11 +12,9 @@ namespace Service.Contracts
         ICityService CityService { get; }
         IClientService ClientService { get; }
         IGarageService GarageService { get; }
-        IRentService rentService { get; }
-
-        IMotorcycleService motorcycleService { get; }
-
-        IPhoneService phoneService { get; }
+        IRentService RentService { get; }
+        IMotorcycleService MotorcycleService { get; }
+        IPhoneService PhoneService { get; }
 
     }
 }

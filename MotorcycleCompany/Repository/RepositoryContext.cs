@@ -22,24 +22,15 @@ namespace Repository
                 
         }
 
-        public virtual DbSet<Agency> Agencies { get; set; } = null!;
-        public virtual DbSet<City> Cities { get; set; } = null!;
-        public virtual DbSet<Client> Clients { get; set; } = null!;
-        public virtual DbSet<Garage> Garages { get; set; } = null!;
-        public virtual DbSet<Motorcycle> Motorcycles { get; set; } = null!;
-        public virtual DbSet<Phone> Phones { get; set; } = null!;
-        public virtual DbSet<Rent> Rents { get; set; } = null!;
+        public  DbSet<Agency> Agencies { get; set; } = null!;
+        public  DbSet<City> Cities { get; set; } = null!;
+        public  DbSet<Client> Clients { get; set; } = null!;
+        public  DbSet<Garage> Garages { get; set; } = null!;
+        public  DbSet<Motorcycle> Motorcycles { get; set; } = null!;
+        public  DbSet<Phone> Phones { get; set; } = null!;
+        public  DbSet<Rent> Rents { get; set; } = null!;
 
 
-
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            if (!optionsBuilder.IsConfigured)
-            {
-
-
-            }
-        }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
 
