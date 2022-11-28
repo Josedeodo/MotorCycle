@@ -11,6 +11,11 @@ namespace Contracts
         IAgencyRepository Agency { get; }
         IClientRepository Client { get; }
         ICityRepository City { get; }
+        IGarageRepository Garage { get; }
+        IRentRepository Rent { get; }
+        IMotorcycleRepository Motorcycle { get; }
+        IPhoneRepository Phone { get; }
+
         void Save();
     }
 }
