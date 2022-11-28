@@ -20,6 +20,9 @@ namespace Service
             _loggerManager = loggerManager;
         }
 
+<<<<<<< HEAD
+        public void createRent(Rent rent) => _repository.Rent.CreateRent(rent);
+=======
         public IEnumerable<Rent> GetAll(bool trackChanges)
         {
             try
@@ -33,5 +36,6 @@ namespace Service
                 throw;
             }
         }
+>>>>>>> 3e30cfa57cba9d1259991d16abf21a97dacae9cb
     }
 }
