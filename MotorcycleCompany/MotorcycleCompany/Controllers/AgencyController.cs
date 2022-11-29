@@ -21,6 +21,7 @@ namespace MotorcycleCompany.Controllers
         [HttpGet]
         public IActionResult Get()
         {
+            
             return Ok(_service.AgencyService.GetAllAgenciesDTO(false));           
         }
 
