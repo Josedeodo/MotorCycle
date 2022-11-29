@@ -43,7 +43,7 @@ namespace Repository
         public IEnumerable<Agency> GetIncludeRentAndClient(bool trackChanges)
         {
             return FindAll(trackChanges).Include(x => x.Rents)
-     .ThenInclude(x => x.Client).Include(x => x.Phones);
+            .ThenInclude(x => x.Client).Include(x => x.Phones);
         }
 
         public IEnumerable<Agency> GetAgencies(bool trackChanges)

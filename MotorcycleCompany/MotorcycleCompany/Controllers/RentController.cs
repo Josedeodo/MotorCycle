@@ -17,8 +17,6 @@ namespace MotorcycleCompany.Controllers
             this.service = service;
         }
 
-
-
         // GET: api/<RentController>
         [HttpGet]
         public IActionResult Get()

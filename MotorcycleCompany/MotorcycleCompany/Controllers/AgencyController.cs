@@ -15,7 +15,7 @@ namespace MotorcycleCompany.Controllers
         private readonly IServiceManager _serviceManager;
         public AgencyController(IServiceManager service)
         {
-            this._serviceManager = service;
+            _serviceManager = service;
         }
         // GET: api/<AgencyController>
         [HttpGet]

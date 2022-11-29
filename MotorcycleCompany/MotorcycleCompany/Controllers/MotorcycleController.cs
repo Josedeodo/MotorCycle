@@ -13,7 +13,7 @@ namespace MotorcycleCompany.Controllers
         private readonly IServiceManager _service;
         public MotorcycleController(IServiceManager service)
         {
-            this._service = service;
+            _service = service;
         }
 
         // GET: api/<MotorcycleController>

@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Service.Contracts;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -8,11 +9,24 @@ namespace MotorcycleCompany.Controllers
     [ApiController]
     public class PhoneController : ControllerBase
     {
+        private readonly IServiceManager _service;
+        public PhoneController(IServiceManager service)
+        {
+            _service = service;
+        }
+
         // GET: api/<PhoneController>
         [HttpGet]
-        public IEnumerable<string> Get()
+        public IActionResult Get()
         {
-            return new string[] { "value1", "value2" };
+            try
+            {
+                return Ok(_service.PhoneService.GetAllPhones(false));
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, ex.Message);
+            }
         }
 
         // GET api/<PhoneController>/5
