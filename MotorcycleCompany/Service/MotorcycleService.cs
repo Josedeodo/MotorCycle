@@ -1,4 +1,5 @@
-﻿using Contracts;
+﻿using AutoMapper;
+using Contracts;
 using Entities.Models;
 using Service.Contracts;
 using System;
@@ -14,11 +15,13 @@ namespace Service
     {
         private readonly IRepositoryWrapper _repository;
         private readonly ILoggerManager _loggerManager;
+        private readonly IMapper _mapper;
 
-        public MotorcycleService(IRepositoryWrapper repository, ILoggerManager logger)
+        public MotorcycleService(IRepositoryWrapper repository, ILoggerManager logger, IMapper mapper)
         {
             _repository = repository;
             _loggerManager = logger;
+            _mapper = mapper;
         }
 
         public void createMoto(Motorcycle moto) => _repository.Motorcycle.CreateMotorcycle(moto);

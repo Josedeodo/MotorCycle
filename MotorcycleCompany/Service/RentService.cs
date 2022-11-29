@@ -1,4 +1,5 @@
-﻿using Contracts;
+﻿using AutoMapper;
+using Contracts;
 using Entities.Models;
 using Service.Contracts;
 using System;
@@ -13,11 +14,13 @@ namespace Service
     {
         private readonly IRepositoryWrapper _repository;
         private readonly ILoggerManager _loggerManager;
+        private readonly IMapper _mapper;
 
-        public RentService(IRepositoryWrapper repository, ILoggerManager loggerManager)
+        public RentService(IRepositoryWrapper repository, ILoggerManager loggerManager, IMapper mapper)
         {
             _repository = repository;
             _loggerManager = loggerManager;
+            _mapper = mapper;
         }
 
         public void createRent(Rent rent) => _repository.Rent.CreateRent(rent);

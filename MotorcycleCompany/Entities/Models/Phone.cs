@@ -12,7 +12,7 @@ namespace Entities.Models
         [Key]
         public Guid AgencyId { get; set; }
         [Key]
-        public Guid PhoneId { get; set; }
+        public string PhoneId { get; set; }
 
         public string NumberPhone { get; set; }
 

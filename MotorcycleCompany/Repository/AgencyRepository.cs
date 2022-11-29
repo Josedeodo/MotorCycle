@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Repository
 {
-    public class AgencyRepository :RepositoryBase<Agency>, IAgencyRepository
+    public class AgencyRepository : RepositoryBase<Agency>, IAgencyRepository
     {
         public AgencyRepository(RepositoryContext context) 
             : base(context)

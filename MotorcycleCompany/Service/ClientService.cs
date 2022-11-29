@@ -1,4 +1,5 @@
-﻿using Contracts;
+﻿using AutoMapper;
+using Contracts;
 using Entities.Models;
 using Service.Contracts;
 using System;
@@ -14,11 +15,13 @@ namespace Service
 
         private readonly IRepositoryWrapper _repository;
         private readonly ILoggerManager _loggerManager;
+        private readonly IMapper _mapper;
 
-        public ClientService(IRepositoryWrapper repository, ILoggerManager loggerManager)
+        public ClientService(IRepositoryWrapper repository, ILoggerManager loggerManager, IMapper mapper)
         {
             this._repository = repository;
             this._loggerManager = loggerManager;
+            _mapper = mapper;
         }
 
         public void CreateClient(Client client)

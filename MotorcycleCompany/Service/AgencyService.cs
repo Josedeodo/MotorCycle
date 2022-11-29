@@ -1,4 +1,6 @@
-﻿using Contracts;
+﻿using AutoMapper;
+using Microsoft.EntityFrameworkCore;
+using Contracts;
 using Entities.Models;
 using Service.Contracts;
 using Shared.DTO;
@@ -15,13 +17,13 @@ namespace Service
 
         private readonly IRepositoryWrapper _repository;
         private readonly ILoggerManager _loggerManager;
-        //private readonly IMapper _mapper;
+        private readonly IMapper _mapper;
 
-        public AgencyService(IRepositoryWrapper repository, ILoggerManager loggerManager)
+        public AgencyService(IRepositoryWrapper repository, ILoggerManager loggerManager, IMapper mapper)
         {
             this._repository = repository;
             this._loggerManager = loggerManager;
-            //this._mapper = mapper;
+            this._mapper = mapper;
         }
 
         public void CreateAgency(Agency agency)
@@ -33,8 +35,9 @@ namespace Service
         {
             try
             {
-               
-                return _repository.Agency.GetAll(trackChanges);
+                var agencies = _repository.Agency.GetAll(trackChanges);
+    
+                return agencies;                
             }
             catch (Exception ex)
             {
@@ -49,7 +52,8 @@ namespace Service
             {
                 var agencies = _repository.Agency.GetAll(trackChanges);
 
-                var agenciesDto = agencies.Select(x => new AgencyDto(x.AgencyId, x.Address, x.Neighborhood, x.Location, x.Name));
+                var agenciesDto = _mapper.Map<IEnumerable<AgencyDto>>(agencies);
+
 
                 return agenciesDto;
             }
