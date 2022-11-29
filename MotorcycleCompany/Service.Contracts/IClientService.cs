@@ -10,5 +10,7 @@ namespace Service.Contracts
     public interface IClientService
     {
         IEnumerable<Client> GetAllClients(bool trackChanges);
+
+        void CreateClient(Client client);
     }
 }

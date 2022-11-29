@@ -41,7 +41,7 @@ namespace MotorcycleCompany.Controllers
         [HttpPost]
         public IActionResult Post([FromBody] Motorcycle moto)
         {
-            _service.MotorcycleService.createMoto(moto);
+            _service.MotorcycleService.CreateMoto(moto);
             _service.Save();
 
             return Ok();

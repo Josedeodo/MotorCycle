@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Entities.Models;
+using Microsoft.AspNetCore.Mvc;
 using Service.Contracts;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -39,8 +40,12 @@ namespace MotorcycleCompany.Controllers
 
         // POST api/<ClientController>
         [HttpPost]
-        public void Post([FromBody] string value)
+        public IActionResult Post([FromBody] Client client)
         {
+            _service.ClientService.CreateClient(client);
+            _service.Save();
+
+            return Ok();
         }
 
         // PUT api/<ClientController>/5

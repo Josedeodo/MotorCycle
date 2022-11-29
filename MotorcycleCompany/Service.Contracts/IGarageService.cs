@@ -10,6 +10,6 @@ namespace Service.Contracts
     public interface IGarageService
     {
         IEnumerable<Garage> GetAllGarages(bool trackChanges);
-        void createGarage(Garage garage);
+        void CreateGarage(Garage garage);
     }
 }

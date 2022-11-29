@@ -18,7 +18,7 @@ namespace Repository
         public IEnumerable<Agency> GetAll(bool trackChanges)
         {    
               return FindAll(trackChanges).Include("Phones").Include("Rents").ToList();
-          
+     
         }
 
 
@@ -28,11 +28,11 @@ namespace Repository
             return FindByCondition(x => x.AgencyId.Equals(id), trackChanges).ToList();
         }
 
-        public void CreateClient(Agency agency) => Create(agency);
+        public void CreateAgency(Agency agency) => Create(agency);
 
-        public void UpdateClient(Agency agency) => Update(agency);
+        public void UpdateAgency(Agency agency) => Update(agency);
 
-        public void DeleteClient(Agency agency) => Delete(agency);
+        public void DeleteAgency(Agency agency) => Delete(agency);
 
 
         public IEnumerable<Agency> GetIncludePhone(bool trackChanges)

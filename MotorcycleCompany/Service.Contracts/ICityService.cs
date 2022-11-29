@@ -10,5 +10,6 @@ namespace Service.Contracts
     public interface ICityService
     {
         IEnumerable<City> GetAllCities(bool trackChanges);
+        void CreateCity(City city);
     }
 }

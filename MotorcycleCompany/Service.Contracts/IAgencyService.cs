@@ -11,5 +11,7 @@ namespace Service.Contracts
     {
         IEnumerable<Agency> GetAllAgencies(bool trackChanges);
         IEnumerable<Agency> GetAllIncludeRentAndClient(bool trackChanges);
+
+        void CreateAgency (Agency agency);
     }
 }

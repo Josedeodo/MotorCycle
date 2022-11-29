@@ -12,10 +12,10 @@ namespace MotorcycleCompany.Controllers
     public class AgencyController : ControllerBase
     {
 
-        private readonly IServiceManager _serviceManager;
+        private readonly IServiceManager _service;
         public AgencyController(IServiceManager service)
         {
-            _serviceManager = service;
+            _service = service;
         }
         // GET: api/<AgencyController>
         [HttpGet]
@@ -23,7 +23,7 @@ namespace MotorcycleCompany.Controllers
         {
             try
             {
-                return Ok(_serviceManager.AgencyService.GetAllIncludeRentAndClient(false));
+                return Ok(_service.AgencyService.GetAllIncludeRentAndClient(false));
             }
             catch (Exception ex)
             {
@@ -41,8 +41,12 @@ namespace MotorcycleCompany.Controllers
 
         // POST api/<AgencyController>
         [HttpPost]
-        public void Post([FromBody] string value)
+        public IActionResult Post([FromBody] Agency agency)
         {
+            _service.AgencyService.CreateAgency(agency);
+            _service.Save();
+
+            return Ok();
         }
 
         // PUT api/<AgencyController>/5

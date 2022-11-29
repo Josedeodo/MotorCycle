@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Entities.Models;
+using Microsoft.AspNetCore.Mvc;
 using Service.Contracts;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -12,7 +13,7 @@ namespace MotorcycleCompany.Controllers
         private readonly IServiceManager _service;
         public CityController(IServiceManager service)
         {
-            this._service = service;
+            _service = service;
         }
 
         // GET: api/<CityController>
@@ -38,8 +39,12 @@ namespace MotorcycleCompany.Controllers
 
         // POST api/<CityController>
         [HttpPost]
-        public void Post([FromBody] string value)
+        public IActionResult Post([FromBody] City city)
         {
+            _service.CityService.CreateCity(city);
+            _service.Save();
+
+            return Ok();
         }
 
         // PUT api/<CityController>/5

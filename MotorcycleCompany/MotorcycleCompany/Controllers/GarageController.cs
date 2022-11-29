@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Entities.Models;
+using Microsoft.AspNetCore.Mvc;
 using Service.Contracts;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -9,10 +10,10 @@ namespace MotorcycleCompany.Controllers
     [ApiController]
     public class GarageController : ControllerBase
     {
-        private readonly IServiceManager _services;
-        public GarageController(IServiceManager services)
+        private readonly IServiceManager _service;
+        public GarageController(IServiceManager service)
         {
-            _services = services;
+            _service = service;
         }
 
         // GET: api/<GarageController>
@@ -21,7 +22,7 @@ namespace MotorcycleCompany.Controllers
         {
             try
             {
-                return Ok(_services.GarageService.GetAllGarages(false));
+                return Ok(_service.GarageService.GetAllGarages(false));
             }
             catch (Exception ex)
             {
@@ -38,8 +39,13 @@ namespace MotorcycleCompany.Controllers
 
         // POST api/<GarageController>
         [HttpPost]
-        public void Post([FromBody] string value)
+        public IActionResult Post([FromBody] Garage garage)
         {
+            _service.GarageService.CreateGarage(garage);
+            _service.Save();
+
+            return Ok();
+
         }
 
         // PUT api/<GarageController>/5

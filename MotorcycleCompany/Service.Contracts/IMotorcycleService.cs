@@ -10,6 +10,6 @@ namespace Service.Contracts
     public interface IMotorcycleService
     {
         IEnumerable<Motorcycle> GetAllMotorcycles(bool trackChanges);
-        void createMoto(Motorcycle moto);
+        void CreateMoto(Motorcycle moto);
     }
 }
