@@ -16,11 +16,12 @@ namespace Repository
         {
         }
         public IEnumerable<Agency> GetAll(bool trackChanges)
-        {    
-              return FindAll(trackChanges).Include("Phones").Include("Rents").ToList();
+        {
+            /*https://riptutorial.com/repository-pattern/learn/100007/create-generic-repository */
+            /* https://www.oscarblancarteblog.com/2018/11/30/data-transfer-object-dto-patron-diseno/ */
+            return FindAll(trackChanges).Include("Phones").Include("Rents").ToList();
      
         }
-
 
         public IEnumerable<Agency> GetById(Guid id, bool trackChanges)
         {
@@ -34,21 +35,5 @@ namespace Repository
 
         public void DeleteAgency(Agency agency) => Delete(agency);
 
-
-        public IEnumerable<Agency> GetIncludePhone(bool trackChanges)
-        {
-            return FindAll(trackChanges).Include("Phones").ToList();
-        }
-
-        public IEnumerable<Agency> GetIncludeRentAndClient(bool trackChanges)
-        {
-            return FindAll(trackChanges).Include(x => x.Rents)
-            .ThenInclude(x => x.Client).Include(x => x.Phones);
-        }
-
-        public IEnumerable<Agency> GetAgencies(bool trackChanges)
-        {
-            return FindAll(trackChanges).ToList();
-        }
     }
 }

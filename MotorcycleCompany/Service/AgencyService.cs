@@ -1,6 +1,7 @@
 ﻿using Contracts;
 using Entities.Models;
 using Service.Contracts;
+using Shared.DTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,11 +15,13 @@ namespace Service
 
         private readonly IRepositoryWrapper _repository;
         private readonly ILoggerManager _loggerManager;
+        //private readonly IMapper _mapper;
 
         public AgencyService(IRepositoryWrapper repository, ILoggerManager loggerManager)
         {
             this._repository = repository;
             this._loggerManager = loggerManager;
+            //this._mapper = mapper;
         }
 
         public void CreateAgency(Agency agency)
@@ -40,12 +43,15 @@ namespace Service
             }
         }
 
-        public IEnumerable<Agency> GetAllIncludeRentAndClient(bool trackChanges)
+        public IEnumerable<AgencyDto> GetAllAgenciesDTO(bool trackChanges)
         {
             try
             {
+                var agencies = _repository.Agency.GetAll(trackChanges);
 
-                return _repository.Agency.GetIncludeRentAndClient(trackChanges);
+                var agenciesDto = agencies.Select(x => new AgencyDto(x.AgencyId, x.Address, x.Neighborhood, x.Location, x.Name));
+
+                return agenciesDto;
             }
             catch (Exception ex)
             {

@@ -51,7 +51,7 @@ namespace MotorcycleCompany.Migrations
                     b.HasData(
                         new
                         {
-                            AgencyId = new Guid("e5e71ebd-93fb-4b8c-8953-460ad2795087"),
+                            AgencyId = new Guid("cb0b5d76-b125-447d-a857-6df3162a4fa5"),
                             Address = "Calle del recuerdo",
                             Location = "Usaquen",
                             Name = "Agencia01",
@@ -59,7 +59,7 @@ namespace MotorcycleCompany.Migrations
                         },
                         new
                         {
-                            AgencyId = new Guid("ca7b62e0-6ffb-4e08-a60d-80bef78eaabe"),
+                            AgencyId = new Guid("78ba0c9e-cecd-4c85-9e8a-ee63b5786588"),
                             Address = "Calle de la soledad",
                             Location = "Usaquen",
                             Name = "Agencia02",
@@ -90,14 +90,14 @@ namespace MotorcycleCompany.Migrations
                     b.HasData(
                         new
                         {
-                            CityId = new Guid("857b63b1-3900-4765-9229-1bf3fe00e096"),
+                            CityId = new Guid("3c624d2a-faab-438a-acd7-d44bff788af3"),
                             Department = "Bogota",
                             Inhabitants = 23,
                             Name = "Bogota"
                         },
                         new
                         {
-                            CityId = new Guid("b887aba1-e002-49bf-b057-9e7cc7c5d8f3"),
+                            CityId = new Guid("d1fc5282-b4ae-4f01-8dca-8221602a41de"),
                             Department = "Tusi",
                             Inhabitants = 21,
                             Name = "Medellin"
@@ -152,7 +152,7 @@ namespace MotorcycleCompany.Migrations
                     b.HasData(
                         new
                         {
-                            ClientId = new Guid("c67a8f75-e136-4de4-9c34-84ca95d83a78"),
+                            ClientId = new Guid("68602f10-c489-4edd-8a87-88636f94a348"),
                             Address = "La calle del ocio",
                             E_Mail = "german.alarcon@misena.edu.co",
                             FistName = "German Gilberto",
@@ -163,7 +163,7 @@ namespace MotorcycleCompany.Migrations
                         },
                         new
                         {
-                            ClientId = new Guid("fa519d95-072d-4f39-81f4-75d1d6f3c515"),
+                            ClientId = new Guid("ade609fe-366e-42cd-97bb-90bc4acc5a5a"),
                             Address = "La calle de la Melancolia",
                             E_Mail = "ana.yaqueline@misena.edu.co",
                             FistName = "Ana Yaqueline",
