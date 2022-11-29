@@ -21,15 +21,7 @@ namespace MotorcycleCompany.Controllers
         [HttpGet]
         public IActionResult Get()
         {
-            try
-            {
-                return Ok(_service.AgencyService.GetAllAgenciesDTO(false));
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(500, $"dfhkfjdfh {ex.Message}");
-            }
-           
+            return Ok(_service.AgencyService.GetAllAgenciesDTO(false));           
         }
 
         // GET api/<AgencyController>/5
