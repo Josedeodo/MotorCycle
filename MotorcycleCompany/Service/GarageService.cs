@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Service
 {
-    public sealed class GarageService : IGarageService
+    internal sealed class GarageService : IGarageService
     {
         private readonly IRepositoryWrapper _repository;
         private readonly ILoggerManager _loggerManager;
@@ -23,6 +23,11 @@ namespace Service
         public void createGarage(Garage garage)
         {
             _repository.Garage.CreateGarage(garage);
+        }
+
+        public void CreateGarage(Garage garage)
+        {
+            throw new NotImplementedException();
         }
 
         public IEnumerable<Garage> GetAllGarages(bool trackChanges)

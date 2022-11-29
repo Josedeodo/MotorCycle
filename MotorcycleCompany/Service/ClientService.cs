@@ -21,6 +21,11 @@ namespace Service
             this._loggerManager = loggerManager;
         }
 
+        public void CreateClient(Client client)
+        {
+            throw new NotImplementedException();
+        }
+
         public IEnumerable<Client> GetAllClients(bool trackChanges)
         {
             try

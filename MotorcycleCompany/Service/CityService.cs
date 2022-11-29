@@ -21,6 +21,11 @@ namespace Service
             this._loggerManager = loggerManager;
         }
 
+        public void CreateCity(City city)
+        {
+            throw new NotImplementedException();
+        }
+
         public IEnumerable<City> GetAllCities(bool trackChanges)
         {
             try

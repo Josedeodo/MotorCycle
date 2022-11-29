@@ -21,6 +21,11 @@ namespace Service
             this._loggerManager = loggerManager;
         }
 
+        public void CreateAgency(Agency agency)
+        {
+            throw new NotImplementedException();
+        }
+
         public IEnumerable<Agency> GetAllAgencies(bool trackChanges)
         {
             try

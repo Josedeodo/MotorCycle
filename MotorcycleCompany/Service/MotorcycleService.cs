@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Service
 {
-    public sealed class MotorcycleService : IMotorcycleService
+    internal sealed class MotorcycleService : IMotorcycleService
     {
         private readonly IRepositoryWrapper _repository;
         private readonly ILoggerManager _loggerManager;
@@ -22,6 +22,11 @@ namespace Service
         }
 
         public void createMoto(Motorcycle moto) => _repository.Motorcycle.CreateMotorcycle(moto);
+
+        public void CreateMoto(Motorcycle moto)
+        {
+            throw new NotImplementedException();
+        }
 
         public IEnumerable<Motorcycle> GetAllMotorcycles(bool trackChanges)
         {
