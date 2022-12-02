@@ -25,14 +25,10 @@ namespace Repository
 
         public IEnumerable<Agency> GetById(Guid id, bool trackChanges)
         {
-
             return FindByCondition(x => x.AgencyId.Equals(id), trackChanges).ToList();
         }
-
         public void CreateAgency(Agency agency) => Create(agency);
-
         public void UpdateAgency(Agency agency) => Update(agency);
-
         public void DeleteAgency(Agency agency) => Delete(agency);
 
     }

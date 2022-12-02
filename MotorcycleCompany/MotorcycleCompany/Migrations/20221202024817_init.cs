@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace MotorcycleCompany.Migrations
 {
-    public partial class Initial : Migration
+    public partial class init : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -194,8 +194,8 @@ namespace MotorcycleCompany.Migrations
                 columns: new[] { "AgencyId", "Address", "Location", "Name", "Neighborhood" },
                 values: new object[,]
                 {
-                    { new Guid("4aee0942-45e3-40e5-9414-df0967842cec"), "Calle de la soledad", "Usaquen", "Agencia02", "Santa Ana" },
-                    { new Guid("c3445489-ef55-4a7b-a179-b04506038f4a"), "Calle del recuerdo", "Usaquen", "Agencia01", "Santa Barbara" }
+                    { new Guid("1ba6628c-1cfa-48e1-909d-5c1a41e5c6da"), "Calle del recuerdo", "Usaquen", "Agencia01", "Santa Barbara" },
+                    { new Guid("27e9cb4d-c8bb-466e-b529-352a3cc51f1e"), "Calle de la soledad", "Usaquen", "Agencia02", "Santa Ana" }
                 });
 
             migrationBuilder.InsertData(
@@ -203,8 +203,8 @@ namespace MotorcycleCompany.Migrations
                 columns: new[] { "CityId", "Department", "Inhabitants", "Name" },
                 values: new object[,]
                 {
-                    { new Guid("21a72702-4ecd-4561-9109-a5c588419126"), "Tusi", 21, "Medellin" },
-                    { new Guid("c239dc6d-4fe7-461d-94bb-0ca4b1269f9c"), "Bogota", 23, "Bogota" }
+                    { new Guid("2abddab0-5cab-427c-880a-6ad70d5b7b51"), "Bogota", 23, "Bogota" },
+                    { new Guid("35bb3ff2-589d-43a4-a358-b4792274fb04"), "Tusi", 21, "Medellin" }
                 });
 
             migrationBuilder.InsertData(
@@ -212,8 +212,8 @@ namespace MotorcycleCompany.Migrations
                 columns: new[] { "ClientId", "Address", "E-Mail", "FistName", "LastName", "Number", "Phone", "TypeId" },
                 values: new object[,]
                 {
-                    { new Guid("2ee68fd5-3501-42cd-a633-d068ed156aa6"), "La calle de la Melancolia", "ana.yaqueline@misena.edu.co", "Ana Yaqueline", "Chavarro", "79802911", "3153666037", "CC" },
-                    { new Guid("31bbe8a3-3b38-41bc-9d96-d0ac90351809"), "La calle del ocio", "german.alarcon@misena.edu.co", "German Gilberto", "Alarcon R", "79802910", "3153666036", "CC" }
+                    { new Guid("713f3f3a-057d-4431-a73f-e6aad31f0fbc"), "La calle de la Melancolia", "ana.yaqueline@misena.edu.co", "Ana Yaqueline", "Chavarro", "79802911", "3153666037", "CC" },
+                    { new Guid("ba7acc60-ab0d-4fdd-b944-ebc2c82fabd9"), "La calle del ocio", "german.alarcon@misena.edu.co", "German Gilberto", "Alarcon R", "79802910", "3153666036", "CC" }
                 });
 
             migrationBuilder.CreateIndex(
