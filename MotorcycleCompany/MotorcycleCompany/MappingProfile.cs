@@ -13,6 +13,12 @@ namespace MotorcycleCompany
                //.ForCtorParam("FullDirection", opt => opt.MapFrom(x =>string.Join(' ', x.Address, x.Neighborhood)));
 
             CreateMap<Phone, PhoneDto>();
+
+            CreateMap<Rent, RentDto>();
+
+            CreateMap<City, CityDto>();
+
+            CreateMap<Motorcycle, MotorcycleDto>();
         }
     }
 }
