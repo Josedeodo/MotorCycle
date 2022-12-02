@@ -2,6 +2,7 @@
 using Contracts;
 using Entities.Models;
 using Service.Contracts;
+using Shared.DTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -31,17 +32,13 @@ namespace Service
             throw new NotImplementedException();
         }
 
-        public IEnumerable<Motorcycle> GetAllMotorcycles(bool trackChanges)
+        public IEnumerable<MotorcycleDto> GetAllMotorcyclesDTO(bool trackChanges)
         {
-            try
-            {
-                return _repository.Motorcycle.GetAll(trackChanges);
-            }
-            catch (Exception ex)
-            {
-                _loggerManager.LogError($"Mas dañino que el azucar: {ex.Message}");
-                throw;
-            }
+            var motorcycles = _repository.Motorcycle.GetAll(trackChanges);
+            var motorcyclesDTO = _mapper.Map<IEnumerable<MotorcycleDto>>(motorcycles);
+
+            return motorcyclesDTO;
+            
         }
     }
 }

@@ -2,6 +2,7 @@
 using Contracts;
 using Entities.Models;
 using Service.Contracts;
+using Shared.DTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,18 +30,13 @@ namespace Service
             throw new NotImplementedException();
         }
 
-        public IEnumerable<City> GetAllCities(bool trackChanges)
+        public IEnumerable<CityDto> GetAllCitiesDTO(bool trackChanges)
         {
-            try
-            {
+            var cities = _repository.City.GetAll(trackChanges);
+            var citiesDto = _mapper.Map<IEnumerable<CityDto>>(cities);
 
-                return _repository.City.GetAll(trackChanges);
-            }
-            catch (Exception ex)
-            {
-                _loggerManager.LogError($"Mas dañino que el azucar: {ex.Message}");
-                throw;
-            }
+            return citiesDto;
+
         }
     }
 }

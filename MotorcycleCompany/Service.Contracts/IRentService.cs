@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Entities.Models;
+using Shared.DTO;
 
 namespace Service.Contracts
 {
@@ -13,7 +14,7 @@ namespace Service.Contracts
 
         void createRent(Rent rent);
 
-        IEnumerable<Rent> GetAllRents(bool trackChanges);
+        IEnumerable<RentDto> GetAllRentsDTO(bool trackChanges);
 
     }
 }

@@ -8,6 +8,6 @@ using System.Threading.Tasks;
 
 namespace Shared
 { 
-    public record PhoneDto(string NumberPhone);
+    public record PhoneDto(string NumberPhone, Guid ClientId, Guid AgencyId, DateTime ReservationDate);
  
 }
