@@ -4,12 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Entities.Models;
+using Shared.DTO;
 
 namespace Service.Contracts
 {
     public interface IGarageService
     {
-        IEnumerable<Garage> GetAllGarages(bool trackChanges);
-        void CreateGarage(Garage garage);
+        IEnumerable<GarageDto> GetAllGarages(bool trackChanges);
     }
 }

@@ -10,10 +10,6 @@ namespace Service.Contracts
 {
     public interface IAgencyService
     {
-        IEnumerable<Agency> GetAllAgencies(bool trackChanges);
-
         IEnumerable<AgencyDto> GetAllAgenciesDTO(bool trackChanges);
-
-        void CreateAgency (Agency agency);
     }
 }

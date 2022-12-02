@@ -21,7 +21,7 @@ namespace Entities.Models
         [StringLength(20)]
         public string Number { get; set; } = null!;
         [StringLength(60)]
-        public string FistName { get; set; } = null!;
+        public string FirstName { get; set; } = null!;
         [StringLength(60)]
         public string LastName { get; set; } = null!;
         [StringLength(60)]

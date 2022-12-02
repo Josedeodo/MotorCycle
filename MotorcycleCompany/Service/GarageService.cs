@@ -2,6 +2,7 @@
 using Contracts;
 using Entities.Models;
 using Service.Contracts;
+using Shared.DTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,29 +23,12 @@ namespace Service
             _loggerManager = loggerManager;
             _mapper = mapper;
         }
-
-        public void createGarage(Garage garage)
+        public IEnumerable<GarageDto> GetAllGarages(bool trackChanges)
         {
-            _repository.Garage.CreateGarage(garage);
-        }
+            var garages = _repository.Garage.GetAll(trackChanges);
+            var garagesDto = _mapper.Map<IEnumerable<GarageDto>>(garages);
 
-        public void CreateGarage(Garage garage)
-        {
-            throw new NotImplementedException();
-        }
-
-        public IEnumerable<Garage> GetAllGarages(bool trackChanges)
-        {
-            try
-            {
-
-                return _repository.Garage.GetAll(trackChanges);
-            }
-            catch (Exception ex)
-            {
-                _loggerManager.LogError($"Mas dañino que el azucar: {ex.Message}");
-                throw;
-            }
+            return garagesDto;
         }
     }
 }

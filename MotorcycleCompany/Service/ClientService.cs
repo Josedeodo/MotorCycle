@@ -2,6 +2,7 @@
 using Contracts;
 using Entities.Models;
 using Service.Contracts;
+using Shared.DTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,23 +25,12 @@ namespace Service
             _mapper = mapper;
         }
 
-        public void CreateClient(Client client)
+        public IEnumerable<ClientDto> GetAllClients(bool trackChanges)
         {
-            throw new NotImplementedException();
-        }
+            var clients = _repository.Client.GetAll(trackChanges);
+            var clientsDto = _mapper.Map<IEnumerable<ClientDto>>(clients);
 
-        public IEnumerable<Client> GetAllClients(bool trackChanges)
-        {
-            try
-            {
-
-                return _repository.Client.GetAll(trackChanges);
-            }
-            catch (Exception ex)
-            {
-                _loggerManager.LogError($"Mas dañino que el azucar: {ex.Message}");
-                throw;
-            }
+            return clientsDto;
         }
     }
 }

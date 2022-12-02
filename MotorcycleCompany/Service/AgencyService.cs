@@ -26,26 +26,6 @@ namespace Service
             this._mapper = mapper;
         }
 
-        public void CreateAgency(Agency agency)
-        {
-            throw new NotImplementedException();
-        }
-
-        public IEnumerable<Agency> GetAllAgencies(bool trackChanges)
-        {
-            try
-            {
-                var agencies = _repository.Agency.GetAll(trackChanges);
-    
-                return agencies;                
-            }
-            catch (Exception ex)
-            {
-                _loggerManager.LogError($"Mas dañino que el azucar: {ex.Message}");
-                throw;
-            }
-        }
-
         public IEnumerable<AgencyDto> GetAllAgenciesDTO(bool trackChanges)
         {
             var agencies = _repository.Agency.GetAll(trackChanges);

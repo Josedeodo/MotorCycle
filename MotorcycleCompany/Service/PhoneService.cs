@@ -22,25 +22,14 @@ namespace Service
             _repository = repository;
             _logger = logger;
             _mapper = mapper;
-
         }
 
         public IEnumerable<PhoneDto> GetAllPhones(bool trackChanges)
         {
-            try
-            {
-                var phone = _repository.Phone.GetAll(trackChanges);
-                var phonesDto = _mapper.Map<IEnumerable<PhoneDto>>(phone);
+            var phone = _repository.Phone.GetAll(trackChanges);
+            var phonesDto = _mapper.Map<IEnumerable<PhoneDto>>(phone);
 
-                return phonesDto;
-                
-
-            }
-            catch (Exception ex)
-            {
-                _logger.LogError($"Mas dañino que el azucar: {ex.Message}");
-                throw;
-            }
+            return phonesDto;                
         }
     }
 }
