@@ -1,4 +1,5 @@
-﻿using Contracts;
+﻿using AutoMapper;
+using Contracts;
 using Service.Contracts;
 using System;
 using System.Collections.Generic;
@@ -24,16 +25,19 @@ namespace Service
 
         private readonly Lazy<IPhoneService> _phoneService;
 
-
-        public ServiceManager(IRepositoryWrapper repositoryManager, ILoggerManager loggerManager)
+        private readonly IRepositoryWrapper _repositoryWrapper;
+        public ServiceManager(IRepositoryWrapper repositoryManager, ILoggerManager loggerManager, IMapper mapper)
         {
-            _agencyService = new Lazy<IAgencyService>(()=> new AgencyService(repositoryManager, loggerManager));
-            _clientService = new Lazy<IClientService>(() => new ClientService(repositoryManager, loggerManager));
-             _cityService = new Lazy<ICityService>(() => new CityService(repositoryManager, loggerManager));
-            _garageService = new Lazy<IGarageService>(() => new GarageService(repositoryManager, loggerManager));
-            _rentService = new Lazy<IRentService>(() => new RentService(repositoryManager,loggerManager));
-            _motorcycleService = new Lazy<IMotorcycleService>(()=> new MotorcycleService(repositoryManager, loggerManager));
-            _phoneService = new Lazy <IPhoneService>(() => new PhoneService(repositoryManager, loggerManager));
+            _agencyService = new Lazy<IAgencyService>(()=> new AgencyService(repositoryManager, loggerManager, mapper));
+            _clientService = new Lazy<IClientService>(() => new ClientService(repositoryManager, loggerManager, mapper));
+             _cityService = new Lazy<ICityService>(() => new CityService(repositoryManager, loggerManager, mapper));
+            _garageService = new Lazy<IGarageService>(() => new GarageService(repositoryManager, loggerManager, mapper));
+            _rentService = new Lazy<IRentService>(() => new RentService(repositoryManager,loggerManager, mapper));
+            _motorcycleService = new Lazy<IMotorcycleService>(()=> new MotorcycleService(repositoryManager, loggerManager, mapper));
+            _phoneService = new Lazy <IPhoneService>(() => new PhoneService(repositoryManager, loggerManager, mapper));
+
+            this._repositoryWrapper = repositoryManager;
+            
             
         }
 
@@ -45,10 +49,12 @@ namespace Service
 
         public IGarageService GarageService => _garageService.Value;
 
-        public IRentService rentService => _rentService.Value;
-     
-        public IMotorcycleService motorcycleService => _motorcycleService.Value;
+        public IRentService RentService => _rentService.Value;
 
-        public IPhoneService phoneService => _phoneService.Value;
+        public IMotorcycleService MotorcycleService => _motorcycleService.Value;
+
+        public IPhoneService PhoneService => _phoneService.Value;
+
+        public void Save() => _repositoryWrapper.Save();
     }
 }

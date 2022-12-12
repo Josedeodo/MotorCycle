@@ -1,5 +1,8 @@
-﻿using Contracts;
+﻿using AutoMapper;
+using Contracts;
+using Entities.Models;
 using Service.Contracts;
+using Shared;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,14 +15,21 @@ namespace Service
     {
         private readonly IRepositoryWrapper _repository;
         private readonly ILoggerManager _logger;
+        private readonly IMapper _mapper;
 
-        public PhoneService(IRepositoryWrapper repository, ILoggerManager logger)
+        public PhoneService(IRepositoryWrapper repository, ILoggerManager logger, IMapper mapper)
         {
-            _repository= repository;
-            _logger= logger;
-
+            _repository = repository;
+            _logger = logger;
+            _mapper = mapper;
         }
 
+        public IEnumerable<PhoneDto> GetAllPhones(bool trackChanges)
+        {
+            var phone = _repository.Phone.GetAll(trackChanges);
+            var phonesDto = _mapper.Map<IEnumerable<PhoneDto>>(phone);
 
+            return phonesDto;                
+        }
     }
 }

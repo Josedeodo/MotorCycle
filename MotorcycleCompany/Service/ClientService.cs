@@ -1,5 +1,8 @@
-﻿using Contracts;
+﻿using AutoMapper;
+using Contracts;
+using Entities.Models;
 using Service.Contracts;
+using Shared.DTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,13 +14,23 @@ namespace Service
     internal sealed class ClientService : IClientService
     {
 
-        private readonly IRepositoryWrapper repository;
-        private readonly ILoggerManager loggerManager;
+        private readonly IRepositoryWrapper _repository;
+        private readonly ILoggerManager _loggerManager;
+        private readonly IMapper _mapper;
 
-        public ClientService(IRepositoryWrapper repository, ILoggerManager loggerManager)
+        public ClientService(IRepositoryWrapper repository, ILoggerManager loggerManager, IMapper mapper)
         {
-            this.repository = repository;
-            this.loggerManager = loggerManager;
+            this._repository = repository;
+            this._loggerManager = loggerManager;
+            _mapper = mapper;
+        }
+
+        public IEnumerable<ClientDto> GetAllClients(bool trackChanges)
+        {
+            var clients = _repository.Client.GetAll(trackChanges);
+            var clientsDto = _mapper.Map<IEnumerable<ClientDto>>(clients);
+
+            return clientsDto;
         }
     }
 }

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Entities.Models;
+using Shared.DTO;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +10,7 @@ namespace Service.Contracts
 {
     public interface IMotorcycleService
     {
-
+        IEnumerable<MotorcycleDto> GetAllMotorcyclesDTO(bool trackChanges);
+        void CreateMoto(Motorcycle moto);
     }
 }

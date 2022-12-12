@@ -1,4 +1,5 @@
 ﻿using Entities.Models;
+using Shared.DTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,10 +12,10 @@ namespace Contracts
     {
         IEnumerable<Agency> GetAll(bool trackChanges);
         IEnumerable<Agency> GetById(Guid id, bool trackChanges);
-        void CreateClient(Agency agency);
-        void UpdateClient(Agency agency);
+        void CreateAgency(Agency agency);
+        void UpdateAgency(Agency agency);
         //void UpdateRange(List<T> entity);
-        void DeleteClient(Agency agency);
+        void DeleteAgency(Agency agency);
 
     }
 }

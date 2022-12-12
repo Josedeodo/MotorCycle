@@ -1,39 +1,43 @@
-using Microsoft.EntityFrameworkCore;
+using Contracts;
 using MotorcycleCompany.Extensions;
-using Repository;
-using System;
+using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 
-var configuration = new ConfigurationBuilder().SetBasePath(Directory.GetCurrentDirectory()).AddJsonFile("appsettings.Development.json").Build();
-var connection = configuration.GetConnectionString("sqlConnectionMySql");
-var serverVersion = new MySqlServerVersion(new Version(8, 0, 28));
-
-builder.Services.AddDbContext<RepositoryContext>(options => options.UseMySql(connection, serverVersion, b => b.MigrationsAssembly("ApisoftBackend")));
 
 // Add services to the container.
-
+builder.Services.ConfigureLoggerService();
 builder.Services.ConfigureRepositoryManager();
 builder.Services.ConfigureServiceManager();
 builder.Services.ConfigureSqlContext(builder.Configuration);
+builder.Services.ConfigureCors();
 
-builder.Services.AddControllers();
+builder.Services.AddControllers().AddApplicationPart(typeof(Presentation.AssemblyReference).Assembly)
+    .AddJsonOptions(x => x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);
+
+builder.Services.AddAutoMapper(typeof(Program));
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
+var logger = app.Services.GetRequiredService<ILoggerManager>();
+app.ConfigureExceptionHandler(logger);
+
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
+    app.UseHsts();
 }
 
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
+
+app.UseCors("CorsPolicy");
 
 app.MapControllers();
 
